@@ -68,6 +68,7 @@ void houseMarketPerState(vector<HousePrice> &hp)
     map<string, int> housemap;
     vector<string> states;
     int line = 1;
+    string result;
     for (auto item:hp)
     {
         if (!housemap[item.getState()])
@@ -84,16 +85,14 @@ void houseMarketPerState(vector<HousePrice> &hp)
     cout << "#Homes per State: " << endl;
     for (auto item:states)
     {
-        cout << item << " " << housemap[item];
+        result = item + " " + to_string(housemap[item]);
+        cout << setw(10) << left << result;
         line++;
         if (line > 1 && line % 10 == 1)
         {
             cout << endl;
         }
-        else
-        {
-            cout <<  setw(15);
-        }
+
     }
 
 
