@@ -14,10 +14,10 @@ int main(int argc, char*argv[])
 	HousePrice test(2, 123, "Weber St", "Ogden", "UT", 84408, 257000.00);
 	cout << test << endl;
 
-//	// Part II
-//	vector<HousePrice> hp;
-//	readCSV("../MOCK_DATA.csv",hp);
-//
+	// Part II
+	vector<HousePrice> hp;
+	readCSV("../MOCK_DATA.csv",hp);
+
 //	// Part III
 //	cout<<"This is your House Analysis"<<endl;
 //	houseMarketValues(hp);

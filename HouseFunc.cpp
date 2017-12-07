@@ -23,7 +23,19 @@ using namespace std;
  */
 void readCSV(const string fileIn,vector<HousePrice>& hp)
 {
+    io::CSVReader <7> in(fileIn);
+    in.read_header(io::ignore_extra_column, "id", "number", "street", "city", "state", "postalCode", "price");
+    int id; int number; string street; string city; string state; int postalCode; double price;
+    while(in.read_row(id, number, street, city, state, postalCode, price))
+    {
+        HousePrice h1 (id, number, street, city, state, postalCode, price);
+        hp.push_back(h1);
+    }
 
+    for(auto item:hp)
+    {
+        cout << item << endl;
+    }
 }
 
 
