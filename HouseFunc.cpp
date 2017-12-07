@@ -47,6 +47,9 @@ void readCSV(const string fileIn,vector<HousePrice>& hp)
 void houseMarketValues(vector<HousePrice> &hp)
 {
     // Sort by Price
+    sort(begin(hp), end(hp));
+    cout << "Most Affordable Home: " << hp[0] << endl;
+    cout << "Most Expensive Home: " << hp.back() << endl;
 
 }
 

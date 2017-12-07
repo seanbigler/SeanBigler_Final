@@ -47,3 +47,23 @@ ostream &operator<<(ostream &os, const HousePrice &price)
     return os;
 }
 
+bool HousePrice::operator<(const HousePrice &rhs) const
+{
+    return price < rhs.price;
+}
+
+bool HousePrice::operator>(const HousePrice &rhs) const
+{
+    return rhs < *this;
+}
+
+bool HousePrice::operator<=(const HousePrice &rhs) const
+{
+    return !(rhs < *this);
+}
+
+bool HousePrice::operator>=(const HousePrice &rhs) const
+{
+    return !(*this < rhs);
+}
+

@@ -30,6 +30,14 @@ public:
     const string &getState() const;
 
     friend ostream &operator<<(ostream &os, const HousePrice &price);
+
+    bool operator<(const HousePrice &rhs) const;
+
+    bool operator>(const HousePrice &rhs) const;
+
+    bool operator<=(const HousePrice &rhs) const;
+
+    bool operator>=(const HousePrice &rhs) const;
 };
 
 
