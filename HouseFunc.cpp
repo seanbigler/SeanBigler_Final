@@ -64,5 +64,26 @@ void houseMarketPerState(vector<HousePrice> &hp)
 {
     // Sort by State
     sort(begin(hp), end(hp), [](const HousePrice& lhs, const HousePrice& rhs){return lhs.getState() < rhs.getState();});
+    map<string, int> housemap;
+    vector<string> states;
+    for (auto item:hp)
+    {
+        if (!housemap[item.getState()])
+        {
+            housemap[item.getState()] = 1;
+            states.push_back(item.getState());
+        }
+        else
+        {
+            housemap[item.getState()] += 1;
+        }
+
+    }
+
+    for (auto item:states)
+    {
+        cout << item << " " << housemap[item] << endl;
+    }
+
 
 }
