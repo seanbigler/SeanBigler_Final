@@ -39,29 +39,50 @@ const string &HousePrice::getState() const
 {
     return state;
 }
-
+/**
+ * Function overloading << operator to output object
+ * @param os : output stream
+ * @param price : HousePrice object
+ * @return : HousePrice object members as output
+ */
 ostream &operator<<(ostream &os, const HousePrice &price)
 {
     os << "id: " << price.id << " number: " << price.number << " postalCode: " << price.postalCode << " street: " << price.street << " city: " << price.city
        << " state: " << price.state << " price: " << price.price;
     return os;
 }
-
+/**
+ * Overloads < operator based on price
+ * @param rhs : HousePrice object that current object is compared against
+ * @return : true or false depending on which object price is greater
+ */
 bool HousePrice::operator<(const HousePrice &rhs) const
 {
     return price < rhs.price;
 }
-
+/**
+ * Overloads > operator based on price
+ * @param rhs : HousePrice object that current object is compared against
+ * @return : true or false depending on which object price is greater
+ */
 bool HousePrice::operator>(const HousePrice &rhs) const
 {
     return rhs < *this;
 }
-
+/**
+ * Overloads <= operator based on price
+ * @param rhs : HousePrice object that current object is compared against
+ * @return : true or false depending on if object is less-than or equal to rhs
+ */
 bool HousePrice::operator<=(const HousePrice &rhs) const
 {
     return !(rhs < *this);
 }
-
+/**
+ * Overloads >= operator based on price
+ * @param rhs : HousePrice object that current object is compared against
+ * @return : true or false depending on if object is greater-than or equal to rhs
+ */
 bool HousePrice::operator>=(const HousePrice &rhs) const
 {
     return !(*this < rhs);

@@ -63,4 +63,6 @@ void houseMarketValues(vector<HousePrice> &hp)
 void houseMarketPerState(vector<HousePrice> &hp)
 {
     // Sort by State
+    sort(begin(hp), end(hp), [](const HousePrice& lhs, const HousePrice& rhs){return lhs.getState() < rhs.getState();});
+
 }
