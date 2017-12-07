@@ -6,6 +6,7 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include <iomanip>
 #include "HouseFunc.h"
 #include "HousePrice.h"
 #include "csv.h" // library to read csv files
@@ -66,6 +67,7 @@ void houseMarketPerState(vector<HousePrice> &hp)
     sort(begin(hp), end(hp), [](const HousePrice& lhs, const HousePrice& rhs){return lhs.getState() < rhs.getState();});
     map<string, int> housemap;
     vector<string> states;
+    int line = 1;
     for (auto item:hp)
     {
         if (!housemap[item.getState()])
@@ -79,10 +81,19 @@ void houseMarketPerState(vector<HousePrice> &hp)
         }
 
     }
-
+    cout << "#Homes per State: " << endl;
     for (auto item:states)
     {
-        cout << item << " " << housemap[item] << endl;
+        cout << item << " " << housemap[item];
+        line++;
+        if (line > 1 && line % 10 == 1)
+        {
+            cout << endl;
+        }
+        else
+        {
+            cout <<  setw(15);
+        }
     }
 
 
